@@ -1,0 +1,562 @@
+{
+  "info": {
+    "_postman_id": "6694642b-967b-42a0-8394-cda19cc7f2fa",
+    "name": "inventery and billing system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50771205",
+    "_collection_link": "https://go.postman.co/collection/50771205-6694642b-967b-42a0-8394-cda19cc7f2fa?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "owner register api",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"first_name\": \"admin\",\r\n  \"last_name\": \"admin\",\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/auth/register/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "auth",
+            "register",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login and refresh token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "// {\r\n//   \"email\": \"staff4@gmail.com\",\r\n//   \"password\": \"xifyEeWZP1\"\r\n// }\r\n\r\n{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/auth/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "staff create api allow owner only",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NDU5NDk3LCJpYXQiOjE3Njg0NTkxOTcsImp0aSI6IjllNjczNTcyOTk0ZjRlYTA5ZGViYmFhOWNmNDI5NTdmIiwidXNlcl9pZCI6IjE1In0.Uc1NYBVJI6vyZ2bL2VbpRXvG0kE_r00Fg0DuP55ybyk",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"staff5\",\r\n  \"email\": \"staff5@gmail.com\",\r\n  \"first_name\": \"Staff\",\r\n  \"last_name\": \"One\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/staff/create/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "staff",
+            "create",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "product viewset",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzA5Nzk1LCJpYXQiOjE3Njg3MDk0OTUsImp0aSI6IjJiNjliYjIzZWYyMTQxYWE4NGE3MWJjNTljZmE0NzEwIiwidXNlcl9pZCI6IjgifQ.G2x0AI0pCCwspQ_9gagtGTu3jXwjrPeDCPSRY4dJUl8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "// {\r\n//   \"name\": \"Milk 1L\",\r\n//   \"sku\": \"MILK-1L\",\r\n//   \"cost_price\": \"120.00\",\r\n//   \"selling_price\": \"150.00\",\r\n//   \"stock_qty\": 50,\r\n//   \"low_stock_threshold\": 5,\r\n//   \"is_active\": true\r\n// }\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000//api/products/2/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "",
+            "api",
+            "products",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "customer supplier viewset",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTU5OTU3LCJpYXQiOjE3Njg1NTk2NTcsImp0aSI6IjBmMDU3ODQ3MzM4MTQyZGU5MzMyNjA2ZmFmYzAyYjAyIiwidXNlcl9pZCI6IjgifQ.5oY4N3MKZUQ3Bh7-GLJ5eKaU8BqdiilHkuCjx6-MeOg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/suppliers/1/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "suppliers",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Purchase invoices",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NjQ0MjcyLCJpYXQiOjE3Njg2NDM5NzIsImp0aSI6IjQ4MWQ4OWYyOGUyYTQyYzNhMzc5NGE5YjQwNDNmZDg0IiwidXNlcl9pZCI6IjgifQ.MQXmd4TjRIrXshn_BpDS77t1vJ4sryIxnLHKSqZWTqY",
+            "type": "text"
+          },
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "// // {\r\n//   \"supplier\": 3,\r\n//   \"invoice_no\": \"PUB-0001\",\r\n//   \"note\": \"New stock arrived\",\r\n//   \"items\": [\r\n//     {\"product\": 3, \"qty\": 10, \"unit_cost\": \"120.00\"},\r\n//     {\"product\": 2, \"qty\": 5,  \"unit_cost\": \"80.00\"}\r\n//   ]\r\n// }\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/purchase-invoices/?ordering=-created_at",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "purchase-invoices",
+            ""
+          ],
+          "query": [
+            {
+              "key": "ordering",
+              "value": "-created_at"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sale Invoice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzU0MjEzLCJpYXQiOjE3Njg3NTM5MTMsImp0aSI6IjM4ZmE2ZjJlMGUxZDRiMWRhYWIzZDA2YzUxYzhkNDc5IiwidXNlcl9pZCI6IjgifQ.4gDOC5meU03fRrUXAPJWLHsRExy_VevaDgqUunuIr6c",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customer\": 2,\r\n  \"invoice_no\": \"SAL-PAY-01\",\r\n  \"note\": \"sale for payment test\",\r\n  \"payment_status\": \"UNPAID\",\r\n  \"purchaseitems\": [\r\n    {\"product\": 2, \"qty\": 2, \"unit_price_salesItem\": \"150.00\"}\r\n  ]\r\n}\r\n\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/sale-invoices/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "sale-invoices",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "low stock",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzEyNDA4LCJpYXQiOjE3Njg3MTIxMDgsImp0aSI6IjBlODZlNmMyZTg4ODQzYWI4MWU1ZjAxZjM5MmE4ODRkIiwidXNlcl9pZCI6IjgifQ.PQCvH7Z3lZb1SH_6lSueD1WWRSzog3yfo-CUChyGxns",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/reports/low-stock/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "reports",
+            "low-stock",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sales Summary",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzE4OTkyLCJpYXQiOjE3Njg3MTg2OTIsImp0aSI6ImE2NDNhODNiOTlmMjRiYTM5NDY1MTJiMjg3MTViYmMzIiwidXNlcl9pZCI6IjgifQ.7in2zcT9Sx4qEHBKlbWF3pQ0M3Ub-6AJCrdprOpQssU",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/reports/sales-summary/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "reports",
+            "sales-summary",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Top products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/reports/top-products/?limit=10",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "reports",
+            "top-products",
+            ""
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "profit",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzMzMTI0LCJpYXQiOjE3Njg3MzI4MjQsImp0aSI6ImY0YTZkNGRlNDRjNzRjMzM4YTFlNGFkNWJkYjc3YTRjIiwidXNlcl9pZCI6IjgifQ.Ns9KlwLAjywOcHHCnh5KAd8ftH7WH5K3Ddf0GJJf6aE",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/reports/profit/?start=2026-01-01&end=2026-01-31",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "reports",
+            "profit",
+            ""
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-01-01"
+            },
+            {
+              "key": "end",
+              "value": "2026-01-31"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sale payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzU0NDg1LCJpYXQiOjE3Njg3NTQxODUsImp0aSI6Ijc5YjlhOTI3OTk0OTQ2NjE5MDRhZGFlODIwMjg2NjY5IiwidXNlcl9pZCI6IjgifQ.Bemo0l4I70oxD0ofIuJQ60RfEC-7PCgPM7u8FmdrYMw",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"invoice\": 2,\r\n  \"amount\": \"100.00\",\r\n  \"method\": \"CASH\",\r\n  \"note\": \"advance\"\r\n}\r\n\r\n\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/sale-payments/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "sale-payments",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "purchase invoice",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4OTA5MDMxLCJpYXQiOjE3Njg5MDg3MzEsImp0aSI6IjVkMTFiMTNmMDc5OTQ4YWRiZDdmYTU4ZmFmZGUzNTNkIiwidXNlcl9pZCI6IjgifQ.g9UxMAMiaq7DXipH_J41naPCg-QqrknI5FtaUOSx6Fc",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"supplier\": 2,\r\n  \"invoice_no\": \"PUR-1001\",\r\n  \"note\": \"purchase test\",\r\n  \"items\": [\r\n    { \"product\": 1, \"qty\": 10, \"unit_cost\": \"100.00\" },\r\n    { \"product\": 2, \"qty\": 5,  \"unit_cost\": \"200.00\" }\r\n  ]\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/purchase-invoices/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "purchase-invoices",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "supplier payments",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4OTA5MTg3LCJpYXQiOjE3Njg5MDg4ODcsImp0aSI6IjRjNzI4ZDViNjQ1MzRlNTA4MjQ3ZTE5ZGFlMTUzYjE0IiwidXNlcl9pZCI6IjgifQ.1JXjTCtoVqVRjECR9hxgtPE14xjAmt3BfkTuTvSmPRs",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"invoice\": 1,\r\n  \"amount\": \"999999.00\",\r\n  \"method\": \"BANK\",\r\n  \"note\": \"overpay\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/supplier-payments/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "supplier-payments",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
